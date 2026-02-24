@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: konflux-app-test-gitops
+  description: This is GitOps manifest for konflux-app-test   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=konflux-app-test
+    backstage.io/kubernetes-id: konflux-app-test 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: konflux-app-test
+spec:
+  type: gitops
+  owner: user:default/deanpeterson 
+  lifecycle: experimental
+  dependsOn:
+    - component:konflux-app-test

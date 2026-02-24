@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:         
+  tssc/gitops: konflux-app-test 
+  janus-idp.io/tekton: konflux-app-test
+  backstage.io/kubernetes-id: konflux-app-test
+  backstage.io/kubernetes-namespace: tssc-app 
+  app.kubernetes.io/part-of: konflux-app-test
+resources:
+  - ci-tekton.yaml
+  - application-dev.yaml
+  - application-stage.yaml
+  - application-prod.yaml
